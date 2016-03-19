@@ -1,25 +1,34 @@
 doctype html
 html
   head
+    title Cookd
+
     meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1.0')
     meta(name='csrf-token', content=_csrf)
-    title #{title} - Hackathon Starter
     link(rel='shortcut icon', href='/favicon.png')
     link(rel='stylesheet', href='/css/main.css')
+    //if lte IE 8
+      script(src='assets/js/ie/html5shiv.js')
+    link(rel='stylesheet', href='/css/main.css')
+    //if lte IE 8
+      link(rel='stylesheet', href='/css/ie8.css')
   body
     include partials/header
-
-    .container
-      include partials/flash
-      block content
-
+    block content
     include partials/footer
 
-    script(src='/js/lib/jquery-2.2.0.min.js')
-    script(src='/js/lib/bootstrap.min.js')
-    script(src='/js/main.js')
+    // Scripts
+    script(src='/js/jquery.min.js')
+    script(src='/js/jquery.dropotron.min.js')
+    script(src='/js/jquery.scrollgress.min.js')
+    script(src='/js/skel.min.js')
+    script(src='/js/util.js')
+
+    //if lte IE 8
+      script(src='assets/js/ie/respond.min.js')
+    script(src='assets/js/main.js')
 
     // Google Analytics: change UA-XXXXX-X to be your site's ID
     script.

@@ -1,40 +1,42 @@
-.navbar.navbar-default.navbar-fixed-top
-  .container
-    .navbar-header
-      button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
-        span.sr-only Toggle navigation
-        span.icon-bar
-        span.icon-bar
-        span.icon-bar
-      a.navbar-brand(href='/')
-        i.fa.fa-cube
-        | Project name
-    .collapse.navbar-collapse
-      ul.nav.navbar-nav
-        li(class=(title == 'Home') ? 'active' : undefined)
-          a(href='/') Home
-        li(class=(title == 'API Examples') ? 'active' : undefined)
-          a(href='/api') API Examples
-        li(class=(title == 'Contact') ? 'active' : undefined)
-          a(href='/contact') Contact
-      ul.nav.navbar-nav.navbar-right
-        if !user
-          li(class=(title == 'Login') ? 'active' : undefined)
-            a(href='/login') Login
-          li(class=(title == 'Create Account') ? 'active' : undefined)
-            a(href='/signup') Create Account
-        else
-          li.dropdown(class=(title == 'Account Management') ? 'active' : undefined)
-            a.dropdown-toggle(href='#', data-toggle='dropdown')
-              if user.profile.picture
-                img(src='#{user.profile.picture}')
-              else
-                img(src='#{user.gravatar(60)}')
-              | #{user.profile.name || user.email || user.id}&nbsp;
-              i.caret
-            ul.dropdown-menu
-              li
-                a(href='/account') My Account
-              li.divider
-              li
-                a(href='/logout') Logout
+// Header
+header#header.alt
+  h1
+    a(href='index.html') Cookd
+    |  by Buzzwords
+  nav#nav
+    ul
+      li
+        a(href='/') Home
+      li
+        a(href='/') Terms
+      if user
+        li(class=(title == 'Login') ? 'active' : undefined)
+          a.button(href='/login') Login
+        li(class=(title == 'Create Account') ? 'active' : undefined)
+          a.button(href='/signup') Create Account
+      else
+        li
+          a.icon.fa-angle-down(href='#') Layouts
+          ul
+            li
+              a(href='generic.html') Generic
+            li
+              a(href='contact.html') Contact
+            li
+              a(href='elements.html') Elements
+            li
+              a(href='#') Submenu
+              ul
+                li
+                  a(href='#') Option One
+                li
+                  a(href='#') Option Two
+                li
+                  a(href='#') Option Three
+                li
+                  a(href='#') Option Four
+        li
+          a(href='/account') My Account
+        li.divider
+        li
+          a(href='/logout') Logout
