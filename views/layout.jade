@@ -14,10 +14,11 @@ html
     link(rel='stylesheet', href='/css/main.css')
     //if lte IE 8
       link(rel='stylesheet', href='/css/ie8.css')
-  body
-    include partials/header
-    block content
-    include partials/footer
+  body.landing
+    #page-wrapper
+      include partials/header
+      block content
+      include partials/footer
 
     // Scripts
     script(src='/js/jquery.min.js')
